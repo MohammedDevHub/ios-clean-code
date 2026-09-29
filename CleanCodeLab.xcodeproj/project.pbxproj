@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EA5E6B1F306B37BA0081301F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B1E306B37BA0081301F /* Task.swift */; };
 		EA5E6B21306B37D20081301F /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B20306B37D20081301F /* TaskManager.swift */; };
+		EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B22306C179E0081301F /* TaskStorage.swift */; };
+		EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B24306C17C20081301F /* TaskExporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		EA5E6B0A306B37660081301F /* CleanCodeLabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanCodeLabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5E6B1E306B37BA0081301F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EA5E6B20306B37D20081301F /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		EA5E6B22306C179E0081301F /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
+		EA5E6B24306C17C20081301F /* TaskExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -105,6 +109,8 @@
 			children = (
 				EA5E6B1E306B37BA0081301F /* Task.swift */,
 				EA5E6B20306B37D20081301F /* TaskManager.swift */,
+				EA5E6B22306C179E0081301F /* TaskStorage.swift */,
+				EA5E6B24306C17C20081301F /* TaskExporter.swift */,
 			);
 			path = "01-Clean-Code";
 			sourceTree = "<group>";
@@ -254,6 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA5E6B1F306B37BA0081301F /* Task.swift in Sources */,
+				EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */,
+				EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */,
 				EA5E6B21306B37D20081301F /* TaskManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

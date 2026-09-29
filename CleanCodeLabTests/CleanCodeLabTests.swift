@@ -34,7 +34,9 @@ final class TaskManagerTests: XCTestCase {
 
         manager.completeTask(task.id)
 
-        XCTAssertTrue(manager.allTasks().first?.isCompleted ?? false)
+        XCTAssertTrue(
+            manager.allTasks().first?.isCompleted ?? false
+        )
     }
 
     func testDeleteTask() {
@@ -49,6 +51,8 @@ final class TaskManagerTests: XCTestCase {
 
         manager.deleteTask(task.id)
 
-        XCTAssertTrue(manager.allTasks().isEmpty)
+        XCTAssertTrue(
+            manager.allTasks().isEmpty
+        )
     }
 }
