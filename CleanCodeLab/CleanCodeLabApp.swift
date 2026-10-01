@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct CleanCodeLabApp: App {
 
+    private let taskManager = TaskManager(
+        storage: TaskStorage()
+    )
+
     var body: some Scene {
         WindowGroup {
             Text("Clean Code Lab")

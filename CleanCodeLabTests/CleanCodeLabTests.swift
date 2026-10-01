@@ -11,21 +11,28 @@ import XCTest
 final class TaskManagerTests: XCTestCase {
 
     func testAddTask() {
-        let manager = TaskManager()
+        let storage = MockTaskStorage()
+        let manager = TaskManager(storage: storage)
 
-        manager.addTask("Learn Clean Code")
+        manager.addTask("Learn Dependency Injection")
 
         let tasks = manager.allTasks()
 
         XCTAssertEqual(tasks.count, 1)
-        XCTAssertEqual(tasks.first?.title, "Learn Clean Code")
-        XCTAssertFalse(tasks.first?.isCompleted ?? true)
+        XCTAssertEqual(
+            tasks.first?.title,
+            "Learn Dependency Injection"
+        )
+        XCTAssertFalse(
+            tasks.first?.isCompleted ?? true
+        )
     }
 
     func testCompleteTask() {
-        let manager = TaskManager()
+        let storage = MockTaskStorage()
+        let manager = TaskManager(storage: storage)
 
-        manager.addTask("Learn SOLID")
+        manager.addTask("Learn DI")
 
         guard let task = manager.allTasks().first else {
             XCTFail("Task should exist")
@@ -40,7 +47,8 @@ final class TaskManagerTests: XCTestCase {
     }
 
     func testDeleteTask() {
-        let manager = TaskManager()
+        let storage = MockTaskStorage()
+        let manager = TaskManager(storage: storage)
 
         manager.addTask("Learn Clean Code")
 
@@ -54,5 +62,46 @@ final class TaskManagerTests: XCTestCase {
         XCTAssertTrue(
             manager.allTasks().isEmpty
         )
+    }
+
+    func testTaskManagerLoadsTasksFromStorage() {
+        let existingTask = Task(
+            title: "Existing Task"
+        )
+
+        let storage = MockTaskStorage(
+            tasks: [existingTask]
+        )
+
+        let manager = TaskManager(
+            storage: storage
+        )
+
+        XCTAssertEqual(
+            manager.allTasks().count,
+            1
+        )
+
+        XCTAssertEqual(
+            manager.allTasks().first?.title,
+            "Existing Task"
+        )
+    }
+}
+
+private final class MockTaskStorage: TaskStorageProtocol {
+
+    private var tasks: [Task]
+
+    init(tasks: [Task] = []) {
+        self.tasks = tasks
+    }
+
+    func save(_ tasks: [Task]) {
+        self.tasks = tasks
+    }
+
+    func load() -> [Task] {
+        tasks
     }
 }

@@ -9,12 +9,20 @@ import Foundation
 
 final class TaskManager {
 
-    private var tasks: [Task] = []
+    private let storage: TaskStorageProtocol
+    private var tasks: [Task]
+
+    init(storage: TaskStorageProtocol) {
+        self.storage = storage
+        self.tasks = storage.load()
+    }
 
     func addTask(_ title: String) {
         tasks.append(
             Task(title: title)
         )
+
+        storage.save(tasks)
     }
 
     func completeTask(_ id: UUID) {
@@ -23,6 +31,7 @@ final class TaskManager {
         }
 
         tasks[index].isCompleted = true
+        storage.save(tasks)
     }
 
     func deleteTask(_ id: UUID) {
@@ -31,6 +40,7 @@ final class TaskManager {
         }
 
         tasks.remove(at: index)
+        storage.save(tasks)
     }
 
     func allTasks() -> [Task] {
