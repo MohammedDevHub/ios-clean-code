@@ -12,6 +12,7 @@
 		EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B22306C179E0081301F /* TaskStorage.swift */; };
 		EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B24306C17C20081301F /* TaskExporter.swift */; };
 		EA5E6BA2306DEA7F0081301F /* TaskStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */; };
+		EAD09203306F987E00830707 /* TaskExporterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD09202306F987E00830707 /* TaskExporterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		EA5E6B22306C179E0081301F /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
 		EA5E6B24306C17C20081301F /* TaskExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExporter.swift; sourceTree = "<group>"; };
 		EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorageProtocol.swift; sourceTree = "<group>"; };
+		EAD09202306F987E00830707 /* TaskExporterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExporterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -114,6 +116,7 @@
 				EA5E6B22306C179E0081301F /* TaskStorage.swift */,
 				EA5E6B24306C17C20081301F /* TaskExporter.swift */,
 				EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */,
+				EAD09202306F987E00830707 /* TaskExporterProtocol.swift */,
 			);
 			path = "01-Clean-Code";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				EA5E6B1F306B37BA0081301F /* Task.swift in Sources */,
 				EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */,
 				EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */,
+				EAD09203306F987E00830707 /* TaskExporterProtocol.swift in Sources */,
 				EA5E6BA2306DEA7F0081301F /* TaskStorageProtocol.swift in Sources */,
 				EA5E6B21306B37D20081301F /* TaskManager.swift in Sources */,
 			);

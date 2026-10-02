@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class TaskExporter {
+final class TaskExporter: TaskExporterProtocol {
 
     func export(_ tasks: [Task]) {
-       
+        // Export tasks
     }
 }

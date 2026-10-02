@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol TaskExporterProtocol {
+
+    func export(_ tasks: [Task])
+}

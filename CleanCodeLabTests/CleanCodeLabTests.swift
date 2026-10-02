@@ -12,17 +12,26 @@ final class TaskManagerTests: XCTestCase {
 
     func testAddTask() {
         let storage = MockTaskStorage()
-        let manager = TaskManager(storage: storage)
+        let manager = TaskManager(
+            storage: storage
+        )
 
-        manager.addTask("Learn Dependency Injection")
+        manager.addTask(
+            "Learn Protocols"
+        )
 
         let tasks = manager.allTasks()
 
-        XCTAssertEqual(tasks.count, 1)
+        XCTAssertEqual(
+            tasks.count,
+            1
+        )
+
         XCTAssertEqual(
             tasks.first?.title,
-            "Learn Dependency Injection"
+            "Learn Protocols"
         )
+
         XCTAssertFalse(
             tasks.first?.isCompleted ?? true
         )
@@ -30,16 +39,22 @@ final class TaskManagerTests: XCTestCase {
 
     func testCompleteTask() {
         let storage = MockTaskStorage()
-        let manager = TaskManager(storage: storage)
+        let manager = TaskManager(
+            storage: storage
+        )
 
-        manager.addTask("Learn DI")
+        manager.addTask(
+            "Learn Abstraction"
+        )
 
         guard let task = manager.allTasks().first else {
             XCTFail("Task should exist")
             return
         }
 
-        manager.completeTask(task.id)
+        manager.completeTask(
+            task.id
+        )
 
         XCTAssertTrue(
             manager.allTasks().first?.isCompleted ?? false
@@ -48,16 +63,22 @@ final class TaskManagerTests: XCTestCase {
 
     func testDeleteTask() {
         let storage = MockTaskStorage()
-        let manager = TaskManager(storage: storage)
+        let manager = TaskManager(
+            storage: storage
+        )
 
-        manager.addTask("Learn Clean Code")
+        manager.addTask(
+            "Learn Clean Architecture"
+        )
 
         guard let task = manager.allTasks().first else {
             XCTFail("Task should exist")
             return
         }
 
-        manager.deleteTask(task.id)
+        manager.deleteTask(
+            task.id
+        )
 
         XCTAssertTrue(
             manager.allTasks().isEmpty
@@ -87,6 +108,26 @@ final class TaskManagerTests: XCTestCase {
             "Existing Task"
         )
     }
+
+    func testTaskExporterProtocolCanUseMockImplementation() {
+        let exporter = MockTaskExporter()
+
+        let tasks = [
+            Task(title: "Learn Protocols")
+        ]
+
+        exporter.export(tasks)
+
+        XCTAssertEqual(
+            exporter.exportedTasks.count,
+            1
+        )
+
+        XCTAssertEqual(
+            exporter.exportedTasks.first?.title,
+            "Learn Protocols"
+        )
+    }
 }
 
 private final class MockTaskStorage: TaskStorageProtocol {
@@ -103,5 +144,14 @@ private final class MockTaskStorage: TaskStorageProtocol {
 
     func load() -> [Task] {
         tasks
+    }
+}
+
+private final class MockTaskExporter: TaskExporterProtocol {
+
+    private(set) var exportedTasks: [Task] = []
+
+    func export(_ tasks: [Task]) {
+        exportedTasks = tasks
     }
 }
