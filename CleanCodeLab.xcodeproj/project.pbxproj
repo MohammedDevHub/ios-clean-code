@@ -12,7 +12,9 @@
 		EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B22306C179E0081301F /* TaskStorage.swift */; };
 		EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6B24306C17C20081301F /* TaskExporter.swift */; };
 		EA5E6BA2306DEA7F0081301F /* TaskStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */; };
-		EAD09203306F987E00830707 /* TaskExporterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD09202306F987E00830707 /* TaskExporterProtocol.swift */; };
+		EAD092143076D75800830707 /* TaskExportStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD092133076D75800830707 /* TaskExportStrategy.swift */; };
+		EAD092163076D77700830707 /* JSONExportStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD092153076D77700830707 /* JSONExportStrategy.swift */; };
+		EAD092183076D79900830707 /* CSVExportStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD092173076D79900830707 /* CSVExportStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,9 @@
 		EA5E6B22306C179E0081301F /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
 		EA5E6B24306C17C20081301F /* TaskExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExporter.swift; sourceTree = "<group>"; };
 		EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorageProtocol.swift; sourceTree = "<group>"; };
-		EAD09202306F987E00830707 /* TaskExporterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExporterProtocol.swift; sourceTree = "<group>"; };
+		EAD092133076D75800830707 /* TaskExportStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExportStrategy.swift; sourceTree = "<group>"; };
+		EAD092153076D77700830707 /* JSONExportStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExportStrategy.swift; sourceTree = "<group>"; };
+		EAD092173076D79900830707 /* CSVExportStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportStrategy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -116,7 +120,9 @@
 				EA5E6B22306C179E0081301F /* TaskStorage.swift */,
 				EA5E6B24306C17C20081301F /* TaskExporter.swift */,
 				EA5E6BA1306DEA7F0081301F /* TaskStorageProtocol.swift */,
-				EAD09202306F987E00830707 /* TaskExporterProtocol.swift */,
+				EAD092133076D75800830707 /* TaskExportStrategy.swift */,
+				EAD092153076D77700830707 /* JSONExportStrategy.swift */,
+				EAD092173076D79900830707 /* CSVExportStrategy.swift */,
 			);
 			path = "01-Clean-Code";
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 				EA5E6B1F306B37BA0081301F /* Task.swift in Sources */,
 				EA5E6B25306C17C20081301F /* TaskExporter.swift in Sources */,
 				EA5E6B23306C179E0081301F /* TaskStorage.swift in Sources */,
-				EAD09203306F987E00830707 /* TaskExporterProtocol.swift in Sources */,
+				EAD092183076D79900830707 /* CSVExportStrategy.swift in Sources */,
 				EA5E6BA2306DEA7F0081301F /* TaskStorageProtocol.swift in Sources */,
 				EA5E6B21306B37D20081301F /* TaskManager.swift in Sources */,
+				EAD092163076D77700830707 /* JSONExportStrategy.swift in Sources */,
+				EAD092143076D75800830707 /* TaskExportStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

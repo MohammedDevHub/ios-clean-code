@@ -12,12 +12,13 @@ final class TaskManagerTests: XCTestCase {
 
     func testAddTask() {
         let storage = MockTaskStorage()
+
         let manager = TaskManager(
             storage: storage
         )
 
         manager.addTask(
-            "Learn Protocols"
+            "Learn Design Patterns"
         )
 
         let tasks = manager.allTasks()
@@ -29,7 +30,7 @@ final class TaskManagerTests: XCTestCase {
 
         XCTAssertEqual(
             tasks.first?.title,
-            "Learn Protocols"
+            "Learn Design Patterns"
         )
 
         XCTAssertFalse(
@@ -39,12 +40,13 @@ final class TaskManagerTests: XCTestCase {
 
     func testCompleteTask() {
         let storage = MockTaskStorage()
+
         let manager = TaskManager(
             storage: storage
         )
 
         manager.addTask(
-            "Learn Abstraction"
+            "Learn Strategy Pattern"
         )
 
         guard let task = manager.allTasks().first else {
@@ -63,6 +65,7 @@ final class TaskManagerTests: XCTestCase {
 
     func testDeleteTask() {
         let storage = MockTaskStorage()
+
         let manager = TaskManager(
             storage: storage
         )
@@ -109,23 +112,66 @@ final class TaskManagerTests: XCTestCase {
         )
     }
 
-    func testTaskExporterProtocolCanUseMockImplementation() {
-        let exporter = MockTaskExporter()
+    func testJSONExportStrategy() {
+        let strategy = JSONExportStrategy()
 
         let tasks = [
-            Task(title: "Learn Protocols")
+            Task(
+                title: "Learn Strategy Pattern"
+            )
         ]
 
-        exporter.export(tasks)
+        let result = strategy.export(tasks)
 
-        XCTAssertEqual(
-            exporter.exportedTasks.count,
-            1
+        XCTAssertTrue(
+            result.contains("Learn Strategy Pattern")
         )
 
+        XCTAssertTrue(
+            result.contains("isCompleted")
+        )
+    }
+
+    func testCSVExportStrategy() {
+        let strategy = CSVExportStrategy()
+
+        let tasks = [
+            Task(
+                title: "Learn Strategy Pattern"
+            )
+        ]
+
+        let result = strategy.export(tasks)
+
+        XCTAssertTrue(
+            result.contains(
+                "id,title,isCompleted"
+            )
+        )
+
+        XCTAssertTrue(
+            result.contains(
+                "Learn Strategy Pattern"
+            )
+        )
+    }
+
+    func testTaskExporterUsesInjectedStrategy() {
+        let exporter = TaskExporter(
+            strategy: MockTaskExportStrategy()
+        )
+
+        let tasks = [
+            Task(
+                title: "Learn Dependency Injection"
+            )
+        ]
+
+        let result = exporter.export(tasks)
+
         XCTAssertEqual(
-            exporter.exportedTasks.first?.title,
-            "Learn Protocols"
+            result,
+            "Mock Export"
         )
     }
 }
@@ -147,11 +193,9 @@ private final class MockTaskStorage: TaskStorageProtocol {
     }
 }
 
-private final class MockTaskExporter: TaskExporterProtocol {
+private struct MockTaskExportStrategy: TaskExportStrategy {
 
-    private(set) var exportedTasks: [Task] = []
-
-    func export(_ tasks: [Task]) {
-        exportedTasks = tasks
+    func export(_ tasks: [Task]) -> String {
+        "Mock Export"
     }
 }

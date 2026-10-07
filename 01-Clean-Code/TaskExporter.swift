@@ -7,9 +7,15 @@
 
 import Foundation
 
-final class TaskExporter: TaskExporterProtocol {
+final class TaskExporter {
 
-    func export(_ tasks: [Task]) {
-        // Export tasks
+    private let strategy: any TaskExportStrategy
+
+    init(strategy: any TaskExportStrategy) {
+        self.strategy = strategy
+    }
+
+    func export(_ tasks: [Task]) -> String {
+        strategy.export(tasks)
     }
 }
