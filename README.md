@@ -231,32 +231,6 @@ Planned topics:
 
 ---
 
-## Learning Approach
-
-Each lesson follows the same workflow:
-
-```text
-Learn
-  ↓
-Understand the Problem
-  ↓
-Implement
-  ↓
-Refactor
-  ↓
-Test
-  ↓
-Commit
-  ↓
-Push to GitHub
-  ↓
-Document the Lesson
-```
-
-The project grows gradually as new concepts are introduced.
-
----
-
 ## Project Structure
 
 The project starts simple and will evolve as the architecture becomes more advanced.
